@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/mistral": "^2.0.1",
     "@ai-sdk/openai": "^1.0.10",
     "@langchain/textsplitters": "^0.0.3",
     "@vercel/analytics": "^1.3.1",

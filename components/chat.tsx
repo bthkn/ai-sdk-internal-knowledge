@@ -11,16 +11,16 @@ import { useScrollToBottom } from "@/components/use-scroll-to-bottom";
 import { Session } from "next-auth";
 
 const suggestedActions = [
-  {
-    title: "What's the summary",
-    label: "of these documents?",
-    action: "what's the summary of these documents?",
-  },
-  {
-    title: "Who is the author",
-    label: "of these documents?",
-    action: "who is the author of these documents?",
-  },
+  // {
+  //   title: "What's the summary",
+  //   label: "of these documents?",
+  //   action: "what's the summary of these documents?",
+  // },
+  // {
+  //   title: "Who is the author",
+  //   label: "of these documents?",
+  //   action: "who is the author of these documents?",
+  // },
 ];
 
 export function Chat({

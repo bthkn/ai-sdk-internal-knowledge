@@ -14,13 +14,15 @@ export async function POST(request: Request) {
 
   const result = streamText({
     model: customModel,
-    system:
-      "you are a friendly assistant! keep your responses concise and helpful.",
-    messages,
+    system: "you are a friendly assistant! keep your responses concise and helpful.",
+    messages: messages,
     experimental_providerMetadata: {
       files: {
         selection: selectedFilePathnames,
       },
+    },
+    onChunk: async ({ chunk }) => {
+      console.log(chunk);
     },
     onFinish: async ({ text }) => {
       await createMessage({
@@ -30,8 +32,8 @@ export async function POST(request: Request) {
       });
     },
     experimental_telemetry: {
-      isEnabled: true,
-      functionId: "stream-text",
+      isEnabled: false,
+      // functionId: "stream-text",
     },
   });
 
