@@ -24,10 +24,10 @@ export const ragMiddleware: Experimental_LanguageModelV1Middleware = {
 
     if (!session) return params; // no user session
 
-    const { prompt: messages, providerMetadata } = params;
+    const { prompt: messages, providerOptions } = params;
 
     // validate the provider metadata with Zod:
-    const { success, data } = selectionSchema.safeParse(providerMetadata);
+    const { success, data } = selectionSchema.safeParse(providerOptions);
 
     if (!success) return params; // no files selected
 

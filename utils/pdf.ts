@@ -5,5 +5,5 @@ export async function getPdfContentFromUrl(url: string): Promise<string> {
   const arrayBuffer = await response.arrayBuffer();
   const buffer = Buffer.from(arrayBuffer);
   const data = await pdf(buffer);
-  return data.text;
+  return data.text.text;
 }

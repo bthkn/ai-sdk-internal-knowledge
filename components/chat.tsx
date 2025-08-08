@@ -1,7 +1,7 @@
 "use client";
 
-import { Message } from "ai";
-import { useChat } from "ai/react";
+// import { UIMessage } from "ai";
+import { useChat, type UIMessage } from '@ai-sdk/react';
 import { useEffect, useState } from "react";
 import { Files } from "@/components/files";
 import { AnimatePresence, motion } from "framer-motion";
@@ -29,7 +29,7 @@ export function Chat({
   session,
 }: {
   id: string;
-  initialMessages: Array<Message>;
+  initialMessages: UIMessage[];
   session: Session | null;
 }) {
   const [selectedFilePathnames, setSelectedFilePathnames] = useState<
@@ -63,9 +63,25 @@ export function Chat({
     }
   }, [session]);
 
-  const { messages, handleSubmit, input, setInput, append } = useChat({
+  /*
+    messages
+    error
+    append
+    reload
+    stop
+    setMessages
+    input
+    setInput
+    handleInputChange
+    handleSubmit
+    metadata
+    isLoading
+    data
+    setData
+  */
+  const { messages, append, input, setInput, handleSubmit } = useChat({
     body: { id, selectedFilePathnames },
-    initialMessages,
+    messages: initialMessages,
     onFinish: () => {
       window.history.replaceState({}, "", `/${id}`);
     },
